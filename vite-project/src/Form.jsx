@@ -14,8 +14,12 @@ export default function Form (){
 
       if (response.ok) {
         alert("Sent successfully!");
-        console.log(document.getElementById(message).textContent)
-        document.getElementById(name).textContent=""
+        console.log(document.getElementById('message').value);
+        document.getElementById('name').value = "";
+        document.getElementById('message').value = "";
+      } else {
+        const text = await response.text();
+        console.error('Server responded with error:', text);
       }
 
     } catch (error) {
